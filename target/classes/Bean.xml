@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+<property name="url" value="jdbc:mysql://localhost:3306/jobportal"></property> 
+<property name="username" value="root"></property>
+<property name="password" value="Gaurav"></property>
+</bean>
+
+<bean id="mysessionfactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+<property name="dataSource" ref="ds"></property>
+<property name="annotatedClasses">
+<list>
+<value>model.Candidate</value>
+<value>model.Experience</value>
+<value>model.Company</value>
+<value>model.Admin</value>
+<value>model.Vacancy</value>
+<value>model.Skills</value>
+<value>model.Employer</value>
+
+</list>
+</property> 
+
+<property name="hibernateProperties">
+ <props>
+  <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.hbm2ddl.auto">create</prop>
+</props>
+
+</property>
+</bean>
+<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">  
+    <property name="sessionFactory" ref="mysessionfactory"></property>  
+    </bean>
+
+<bean id="candidatedaoimpl" class="daoimpl.CandidateDaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+
+
+<bean id="skillsdaoimpl" class="daoimpl.SkillsDaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+
+
+
+
+<bean id="companydaoimpl" class="daoimpl.CompanyDaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+
+<bean id="admindaoimpl" class="daoimpl.AdminDaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+
+<bean id="vacancydaoimpl" class="daoimpl.VacancyDaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+<bean id="employerdaoimpl" class="daoimpl.EmployerdaoImpl">
+<property name="hTemplate" ref="template"></property>
+
+</bean>
+<bean id="adminservice" class="services.Adminservices">
+<property name="admindaoimpl" ref="admindaoimp"></property>
+
+</bean>
+
+<bean id="candidatservice" class="services.Candidateservices">
+<property name="candidatedaoimpl" ref="candidatedaoimpl"></property>
+
+</bean>
+<bean id="companyservice" class="services.Companyservices">
+<property name="companydaoimpl" ref="companydaoimpl"></property>
+
+</bean>
+<bean id="employerservice" class="services.Employerservices">
+<property name="employerdaoimpl" ref="employerdaoimpl"></property>
+
+</bean>
+<bean id="skillsservice" class="services.Skillsservices">
+<property name="skillsdaoimpl" ref="skillsdaoimpl"></property>
+
+</bean>
+<bean id="vacancyservice" class="services.Vacancyservices">
+<property name="vacancydaoimpl" ref="vacancydaoimpl"></property>
+
+</bean>
+
+<bean id="candidate" class="model.Candidate">
+
+
+</bean>
+
+<bean id="company" class="model.Company">
+
+
+</bean>
+
+<bean id="admin" class="model.Admin">
+
+</bean>
+
+<bean id="vacancy" class="model.Vacancy">
+
+
+</bean>
+
+<bean id="employer" class="model.Employer">
+
+
+</bean>
+
+
+<bean id="skills" class="model.Skills">
+
+
+</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</beans>
