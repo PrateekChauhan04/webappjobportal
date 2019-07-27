@@ -25,18 +25,17 @@ public class Skills {
 	@Column
 	String skillLevel;
 	
-	@ManyToMany(mappedBy="skills")
-	List<Vacancy> vacancies = new ArrayList<Vacancy>();
-	
-	public List<Vacancy> getVacancies() {
-		return vacancies;
-	}
+//	@ManyToMany(mappedBy="skills")
+//	List<Vacancy> vacancies = new ArrayList<Vacancy>();
+//	
+//	public List<Vacancy> getVacancies() {
+//		return vacancies;
+//	}
+//
+//	public void setVacancies(List<Vacancy> vacancies) {
+//		this.vacancies = vacancies;
+//	}
 
-	public void setVacancies(List<Vacancy> vacancies) {
-		this.vacancies = vacancies;
-	}
-
-	
 	public int getSkillId() {
 		return skillId;
 	}
@@ -44,10 +43,11 @@ public class Skills {
 	public void setSkillId(int skillId) {
 		this.skillId = skillId;
 	}
-
+	
 	public String getField() {
 		return field;
 	}
+
 
 	public void setField(String field) {
 		this.field = field;
