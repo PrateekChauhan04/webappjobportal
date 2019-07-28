@@ -18,20 +18,20 @@ public class SkillsDaoImpl implements SkillsDao {
 		this.hTemplate = hTemplate;
 	}
 
-	public void addSkill(Skills s) {
-		this.hTemplate.save(s);
+	public void addSkill(Skills skill) {
+		this.hTemplate.save(skill);
 	}
 
 	public List<Skills> readAllSkills() {
 		return this.hTemplate.find("from Skills");
 	}
 
-	public void updateSkill(Skills s) {
-		this.hTemplate.update(s);
+	public void updateSkill(Skills skill) {
+		this.hTemplate.update(skill);
 	}
 
-	public void deleteSkill(Skills s) {
-		this.hTemplate.delete(s);
+	public void deleteSkill(Skills skill) {
+		this.hTemplate.delete(skill);
 	}
 
 }
