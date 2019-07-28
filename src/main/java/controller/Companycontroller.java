@@ -1,6 +1,4 @@
-package controller;
 
-public class Companycontroller {
 	package controller;
 	import java.util.*;
 
@@ -93,4 +91,4 @@ public class Companycontroller {
 		
 
 	}
-}
+
