@@ -6,6 +6,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
     import dao.CompanyDao;
 	import model.Company;
+import model.Vacancy;
 	
 
 	public class CompanyDaoImpl implements CompanyDao {
@@ -32,10 +33,13 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 			
 		this.hTemplate.delete(c);
 		}
-	       public List<Company> readAll() {
+		
+		
+		
+	    public List<Company> readAll() {
 			
 			
-			return this.hTemplate.find("from Company");
+	    return this.hTemplate.find("from Company");
 		}
 
 		public void updateCompany(Company c) {
@@ -43,9 +47,15 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 			this.hTemplate.update(c);
 			
 		}
-
-	
-
+		
+	    public void getCompanybyId(Company c) {
+	    	
+	    	
+	    }
+	    public void viewCompany(Company c)
+	    {
+		
+		
 	}
-
-
+         
+}
