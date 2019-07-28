@@ -12,18 +12,18 @@ import javax.persistence.ManyToMany;
 public class Admin {
 	
 	@Id
-	public int A_id;
+	public int adminId;
 	@Column
 	public String email;
 	@Column
 	public String password;
 	
 	
-	public int getA_id() {
-		return A_id;
+	public int getAdminId() {
+		return adminId;
 	}
-	public void setA_id(int a_id) {
-		A_id = a_id;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
 	}
 	public String getEmail() {
 		return email;
@@ -41,15 +41,15 @@ public class Admin {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@ManyToMany(mappedBy="admin")
-	List<Company> company=new ArrayList<Company>();
-
-
-	public List<Company> getCompany() {
-		return company;
-	}
-	public void setCompany(List<Company> company) {
-		this.company = company;
-	}
+//	@ManyToMany(mappedBy="admin")
+//	List<Company> company=new ArrayList<Company>();
+//
+//
+//	public List<Company> getCompany() {
+//		return company;
+//	}
+//	public void setCompany(List<Company> company) {
+//		this.company = company;
+//	}
 
 }

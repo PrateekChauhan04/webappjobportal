@@ -22,19 +22,19 @@ public HibernateTemplate hTemplate;
 	}
 
 
-	public void createadmin(Admin a) {
+	public void createAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-		this.hTemplate.save(a);
+		this.hTemplate.save(admin);
 	}
 
-	public void updateadmin(Admin a) {
+	public void updateAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-		this.hTemplate.update(a);
+		this.hTemplate.update(admin);
 }
 
-	public void deleteadmin(Admin a) {
+	public void deleteAdmin(Admin admin) {
 		// TODO Auto-generated method stub
-		this.hTemplate.delete(a);
+		this.hTemplate.delete(admin);
 	}
 
 	public List<Admin> readall() {
