@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -25,34 +26,37 @@ public class Employer {
 	@Column
 	private String companyName;
 	
-	@OneToMany (mappedBy = "employer")
-	List<Vacancy> vaccancy=new ArrayList<Vacancy>();
-	
-	public List<Vacancy> getVaccancy() {
-		return vaccancy;
-	}
-	public void setVaccancy(List<Vacancy> vaccancy) {
-		this.vaccancy = vaccancy;
-	}
-	
-	public Company getCompany1() {
-		return company;
-	}
-	public void setCompany1(Company company1) {
-		this.company = company1;
-	}
-
-	@ManyToMany
-    List<Candidate> candidates = new ArrayList<Candidate>();
-    
-	public List<Candidate> getCandidates() {
-		return candidates;
-	}
-	public void setCandidates(List<Candidate> candidates) {
-		this.candidates = candidates;
-	}
-	@ManyToOne
-	Company company;
+//	@OneToMany (mappedBy = "employer")
+//	List<Vacancy> vaccancy=new ArrayList<Vacancy>();
+//	
+//	public List<Vacancy> getVaccancy() {
+//		return vaccancy;
+//	}
+//	public void setVaccancy(List<Vacancy> vaccancy) {
+//		this.vaccancy = vaccancy;
+//	}
+//	
+//	@ManyToOne
+//	Company company;
+//	
+//	
+//	public Company getCompany() {
+//		return company;
+//	}
+//	public void setCompany(Company company) {
+//		this.company = company;
+//	}
+//
+//
+//	@ManyToMany
+//    List<Candidate> candidates = new ArrayList<Candidate>();
+//    
+//	public List<Candidate> getCandidates() {
+//		return candidates;
+//	}
+//	public void setCandidates(List<Candidate> candidates) {
+//		this.candidates = candidates;
+//	}
 	
 	public int getEId() {
 		return EId;
