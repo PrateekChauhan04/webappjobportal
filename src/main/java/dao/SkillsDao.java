@@ -10,8 +10,8 @@ public interface SkillsDao {
 	
 	public List<Skills> readAllSkills();
 	
-	public void updateSkill(Skills s);
+	public void updateSkill(Skills skill);
 	
-	public void deleteSkill(Skills s);
+	public void deleteSkill(Skills skill);
 
 }
