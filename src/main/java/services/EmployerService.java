@@ -5,7 +5,7 @@ import java.util.List;
 import daoimpl.EmployerdaoImpl;
 import model.Employer;
 
-public class Employerservices {
+public class EmployerService {
 
 	EmployerdaoImpl employerdaoimpl;
 

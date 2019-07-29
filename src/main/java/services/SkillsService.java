@@ -6,7 +6,7 @@ import java.util.List;
 import daoimpl.SkillsDaoImpl;
 import model.Skills;
 
-public class SkillsServices {
+public class SkillsService {
 
 	public SkillsDaoImpl skillsdaoimpl;
 

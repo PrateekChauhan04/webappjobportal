@@ -5,7 +5,7 @@ import java.util.List;
 import daoimpl.AdminDaoImpl;
 import model.Admin;
 
-public class Adminservices {
+public class AdminService {
 	
 	private AdminDaoImpl admindaoimpl;
 	

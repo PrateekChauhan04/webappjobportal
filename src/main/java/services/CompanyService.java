@@ -5,7 +5,7 @@ import java.util.List;
 import daoimpl.*;
 import model.*;
 
-public class Companyservices {
+public class CompanyService {
 	
 	private CompanyDaoImpl companydaoimpl;
 

@@ -23,17 +23,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 
 import model.Skills;
-import services.SkillsServices;
+import services.SkillsService;
 
 
 @Controller
 @RequestMapping(value="/skills")
 
-public class Skillscontroller {
+public class SkillsController {
 	List<Skills> skl = new ArrayList<Skills>(); 
 	
 	ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-	SkillsServices skillservice=(SkillsServices)context.getBean("skillsservice");
+	SkillsService skillservice=(SkillsService)context.getBean("skillsservice");
 	Skills skill=(Skills)context.getBean("skills");
 	
 	
