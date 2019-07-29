@@ -16,7 +16,7 @@ import services.VacancyService;
 
 @Controller
 @RequestMapping("/vacancy")
-public class VacancyController {
+public class Vacancycontroller {
 
 	List<Vacancy> al=new ArrayList<Vacancy>();
 	
@@ -58,11 +58,9 @@ public class VacancyController {
         vservice.deleteVacancy(vacancy);
         return "{'status':1,'message':'DELETED SUCCESFULLY'}";
 	}
+	                                                                                           //View
 	
 	
-	//View is unavailable & read all is also unavaialble
-	
-	                                                                         
 	
 	
 }
