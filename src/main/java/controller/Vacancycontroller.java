@@ -31,7 +31,7 @@ public class Vacancycontroller {
 		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-		vservice.createVacancy(vacancy);
+		vservice.createVacancy(vac);
 		return "{'status':1,'message':'Added successfully'}";
 		
 	}
@@ -44,7 +44,7 @@ public class Vacancycontroller {
 		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-        vservice.updateVacancy(vacancy);
+        vservice.updateVacancy(vac);
         return "{'status':1,'message':'Updated successfully'}";
 	}
 	
@@ -57,7 +57,7 @@ public class Vacancycontroller {
 		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-        vservice.deleteVacancy(vacancy);
+        vservice.deleteVacancy(vac);
         return "{'status':1,'message':'DELETED SUCCESFULLY'}";
 	}
 	                                                                                           //View
