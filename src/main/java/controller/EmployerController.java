@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import model.Employer;
-import services.Employerservices;
+import services.EmployerService;
 
 @Controller
 @RequestMapping("/employer")
-public class Employercontroller {
+public class EmployerController {
 	
 	List<Employer> al=new ArrayList<Employer>();
 	
@@ -26,7 +26,7 @@ public class Employercontroller {
 	@ResponseBody
 	public String addEmployer(@RequestBody String employer) {
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Employerservices eservice=context.getBean("employerservice",Employerservices.class);
+		EmployerService eservice=context.getBean("employerservice",EmployerService.class);
 		Gson g=new Gson();	
 		Employer emp=g.fromJson(employer,Employer.class);
 		eservice.addEmployer(emp);
@@ -40,7 +40,7 @@ public class Employercontroller {
 	@ResponseBody
 	public String deleteEmployer(@RequestBody String employer) {
 	    ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Employerservices eservice=context.getBean("employerservice",Employerservices.class);
+		EmployerService eservice=context.getBean("employerservice",EmployerService.class);
 		Gson g=new Gson();
 		Employer emp=g.fromJson(employer,Employer.class);
 		eservice.deleteEmployer(emp);
@@ -53,7 +53,7 @@ public class Employercontroller {
 	public String updateEmployer(@RequestBody String employer)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Employerservices eservice=context.getBean("employerservice",Employerservices.class);
+		EmployerService eservice=context.getBean("employerservice",EmployerService.class);
 		Gson g=new Gson();
 		Employer emp=g.fromJson(employer,Employer.class);
 		eservice.updateEmployer(emp);
@@ -65,7 +65,7 @@ public class Employercontroller {
 	public String readAllEmployer()
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Employerservices eservice=context.getBean("employerservice",Employerservices.class);
+		EmployerService eservice=context.getBean("employerservice",EmployerService.class);
 		Gson g=new Gson();
 	    al=eservice.readAllEmployer();
 		String emp=g.toJson(al);
@@ -77,7 +77,7 @@ public class Employercontroller {
 	public String getById(@PathVariable("EId") int employerid)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Employerservices eservice=context.getBean("employerservice",Employerservices.class);
+		EmployerService eservice=context.getBean("employerservice",EmployerService.class);
 		Gson g=new Gson();
 		Employer empbyid=eservice.getEmployerById(employerid);
 		return g.toJson(empbyid,Employer.class);

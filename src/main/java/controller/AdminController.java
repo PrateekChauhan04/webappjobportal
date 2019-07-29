@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import model.Admin;
-import services.Adminservices;
+import services.AdminService;
 
 
 @Controller
 @RequestMapping("/admin")
-public class Admincontroller {
+public class AdminController {
 	
 	ArrayList<Admin> al=new ArrayList<Admin>();
 	ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-	Adminservices admins=null;
+	AdminService admins=null;
 	Admin adm=null;
 	@RequestMapping(value = "",method = RequestMethod.POST)
 	@ResponseBody
 	public String createAdmin(@RequestBody String admin) {
 		
-		admins=context.getBean("adminservice", Adminservices.class);
+		admins=context.getBean("adminservice", AdminService.class);
 		adm=context.getBean("admin",Admin.class);
 		Gson g=new Gson();
 		Admin a=g.fromJson(admin, Admin.class);
@@ -42,7 +42,7 @@ public class Admincontroller {
 	@ResponseBody
 	public String viewAdmin()
 	{
-		admins=context.getBean("adminservice", Adminservices.class);
+		admins=context.getBean("adminservice", AdminService.class);
 		adm=context.getBean("admin",Admin.class);
 		Gson g=new Gson();
 		String resp=g.toJson(admins.viewAdmin());
@@ -55,7 +55,7 @@ public class Admincontroller {
 	public String deleteById(@PathVariable("id") int adminId)
 	{
 		
-		admins=context.getBean("adminservice", Adminservices.class);
+		admins=context.getBean("adminservice", AdminService.class);
 		adm=context.getBean("admin",Admin.class);
 		adm.setAdminId(adminId);
 		admins.deleteAdmin(adm);
@@ -67,7 +67,7 @@ public class Admincontroller {
 	@ResponseBody
 	public String updateAdmin(@RequestBody String admin) {
 		
-		admins=context.getBean("adminservice", Adminservices.class);
+		admins=context.getBean("adminservice", AdminService.class);
 		adm=context.getBean("admin",Admin.class);
 		Gson g=new Gson();
 		Admin a=g.fromJson(admin, Admin.class);

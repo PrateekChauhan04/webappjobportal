@@ -12,18 +12,18 @@
 
 	import model.Company;
 
-	import services.Companyservices;
+	import services.CompanyService;
 
 	import com.google.gson.Gson;
 
 	@Controller
 	@RequestMapping("/company")
-	public class Companycontroller {
+	public class CompanyController {
 		
 		ArrayList<Company> al=new ArrayList<Company>();
 
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Companyservices companyservice=(Companyservices)context.getBean("companyService");
+		CompanyService companyservice=(CompanyService)context.getBean("companyService");
 		Company company=(Company)context.getBean("company");
 		
 
