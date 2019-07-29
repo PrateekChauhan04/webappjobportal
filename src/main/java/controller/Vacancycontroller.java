@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+
 import model.Vacancy;
 import services.VacancyService;
 
@@ -26,7 +28,7 @@ public class Vacancycontroller {
 	public String createVacancy(@RequestBody String vacancy)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Vacancyservices vservice=context.getBean("vacancyservice",Vacancyservices.class);
+		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
 		vservice.createVacancy(vacancy);
@@ -39,7 +41,7 @@ public class Vacancycontroller {
 	public String updateVacancy(@RequestBody String vacancy)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Vacancyservices vservice=context.getBean("vacancyservice",Vacancyservices.class);
+		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
         vservice.updateVacancy(vacancy);
@@ -52,7 +54,7 @@ public class Vacancycontroller {
 	public String deleteVacancy(@RequestBody String vacancy)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		Vacancyservices vservice=context.getBean("vacancyservice",Vacancyservices.class);
+		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
         vservice.deleteVacancy(vacancy);
