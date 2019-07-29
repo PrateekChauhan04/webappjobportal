@@ -5,6 +5,7 @@ package daoimpl;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import dao.CandidateDao;
 import model.Candidate;
@@ -66,6 +67,10 @@ public class CandidateDaoImpl implements CandidateDao {
 		return this.hTemplate.find("from Candidate");
 	}
 
+@Transactional
+public Candidate getCandidateById(String mobno)
+{
 
-
+	return this.hTemplate.get(Candidate.class, mobno);
+}
 }

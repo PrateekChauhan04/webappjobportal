@@ -14,4 +14,5 @@ public interface CandidateDao {
 	public void addEducation(Candidate candidate,Education ex);
 	public void deleteCandidate(Candidate candidate);
 	public List<Candidate> getAllCandidate();
+	public Candidate getCandidateById(String mobNo);
 }
