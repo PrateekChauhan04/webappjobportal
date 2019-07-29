@@ -33,7 +33,7 @@ public class Skillscontroller {
 	List<Skills> skl = new ArrayList<Skills>(); 
 	
 	ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-	SkillsServices skillservice=(SkillsServices)context.getBean("skillsService");
+	SkillsServices skillservice=(SkillsServices)context.getBean("skillsservice");
 	Skills skill=(Skills)context.getBean("skills");
 	
 	
@@ -78,7 +78,6 @@ public class Skillscontroller {
 		
 		Gson g=new Gson();		
 		skl	=skillservice.readAllSkills();
-	
 		String resp=g.toJson(skl);
 		System.out.println(resp);
 		return resp;
