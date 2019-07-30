@@ -3,17 +3,24 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import model.Candidate;
 import model.Vacancy;
+import services.CandidateServices;
 import services.VacancyService;
 
 @Controller
@@ -27,11 +34,11 @@ public class Vacancycontroller {
 	@ResponseBody
 	public String createVacancy(@RequestBody String vacancy)
 	{
-		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
+		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");							
+		VacancyService vService=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-		vservice.createVacancy(vac);
+		vService.createVacancy(vac);
 		return "{'status':1,'message':'Added successfully'}";
 		
 	}
@@ -41,10 +48,10 @@ public class Vacancycontroller {
 	public String updateVacancy(@RequestBody String vacancy)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
+		VacancyService vService=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-        vservice.updateVacancy(vac);
+        vService.updateVacancy(vac);
         return "{'status':1,'message':'Updated successfully'}";
 	}
 	
@@ -54,14 +61,14 @@ public class Vacancycontroller {
 	public String deleteVacancy(@RequestBody String vacancy)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		VacancyService vservice=context.getBean("vacancyservice",VacancyService.class);
+		VacancyService vService=context.getBean("vacancyservice",VacancyService.class);
 		Gson g=new Gson();
 		Vacancy vac=g.fromJson(vacancy,Vacancy.class);
-        vservice.deleteVacancy(vac);
+        vService.deleteVacancy(vac);
         return "{'status':1,'message':'DELETED SUCCESFULLY'}";
 	}
 	                                                                                           //View
-	
+
 	
 	
 	
