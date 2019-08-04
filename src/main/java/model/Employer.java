@@ -10,6 +10,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Employer {
 	@Id
@@ -26,37 +29,40 @@ public class Employer {
 	@Column
 	private String companyName;
 	
-//	@OneToMany (mappedBy = "employer")
-//	List<Vacancy> vaccancy=new ArrayList<Vacancy>();
-//	
-//	public List<Vacancy> getVaccancy() {
-//		return vaccancy;
-//	}
-//	public void setVaccancy(List<Vacancy> vaccancy) {
-//		this.vaccancy = vaccancy;
-//	}
-//	
-//	@ManyToOne
-//	Company company;
-//	
-//	
-//	public Company getCompany() {
-//		return company;
-//	}
-//	public void setCompany(Company company) {
-//		this.company = company;
-//	}
-//
-//
-//	@ManyToMany
-//    List<Candidate> candidates = new ArrayList<Candidate>();
-//    
-//	public List<Candidate> getCandidates() {
-//		return candidates;
-//	}
-//	public void setCandidates(List<Candidate> candidates) {
-//		this.candidates = candidates;
-//	}
+	@OneToMany (mappedBy = "employer")
+	@LazyCollection(LazyCollectionOption.FALSE)
+transient	List<Vacancy> vaccancy=new ArrayList<Vacancy>();
+	
+	public List<Vacancy> getVaccancy() {
+		return vaccancy;
+	}
+	public void setVaccancy(List<Vacancy> vaccancy) {
+		this.vaccancy = vaccancy;
+	}
+	
+	@ManyToOne
+	@LazyCollection(LazyCollectionOption.FALSE)
+	Company company;
+	
+	
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+
+	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+    List<Candidate> candidates = new ArrayList<Candidate>();
+    
+	public List<Candidate> getCandidates() {
+		return candidates;
+	}
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
+	}
 	
 	public int getEId() {
 		return EId;

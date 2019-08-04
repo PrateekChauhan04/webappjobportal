@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Company {
 	@Column
@@ -63,21 +66,23 @@ public class Company {
 	
 
 	@OneToMany(mappedBy="company")
-	List<Employer> Employer = new ArrayList<Employer>();
+	@LazyCollection(LazyCollectionOption.FALSE)
+	transient List<Employer> Employer = new ArrayList<Employer>();
 
-	//@ManyToMany
-//	List<Admin> admin=new ArrayList<Admin>();
-//	public List<Employer> getEmployer() {
-	//	return Employer;
-	//}
+	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+   List<Admin> admin=new ArrayList<Admin>();
+	public List<Employer> getEmployer() {
+	return Employer;
+	}
 	public void setEmployer(List<Employer> employer) {
 		Employer = employer;
 	}
-//	public List<Admin> getAdmin() {
-	//	return admin;
-	//}
-//	public void setAdmin(List<Admin> admin) {
-	//	this.admin = admin;
-	//}
+	public List<Admin> getAdmin() {
+		return admin;
+	}
+	public void setAdmin(List<Admin> admin) {
+		this.admin = admin;
+	}
 	
 }

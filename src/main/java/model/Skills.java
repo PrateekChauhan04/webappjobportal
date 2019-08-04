@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 
 
 @Entity
@@ -25,16 +28,17 @@ public class Skills {
 	@Column
 	String skillLevel;
 	
-//	@ManyToMany(mappedBy="skills")
-//	List<Vacancy> vacancies = new ArrayList<Vacancy>();
-//	
-//	public List<Vacancy> getVacancies() {
-//		return vacancies;
-//	}
-//
-//	public void setVacancies(List<Vacancy> vacancies) {
-//		this.vacancies = vacancies;
-//	}
+	@ManyToMany(mappedBy="skills")
+	@LazyCollection(LazyCollectionOption.FALSE)
+transient	List<Vacancy> vacancies = new ArrayList<Vacancy>();
+	
+	public List<Vacancy> getVacancies() {
+		return vacancies;
+	}
+
+	public void setVacancies(List<Vacancy> vacancies) {
+		this.vacancies = vacancies;
+	}
 
 	public int getSkillId() {
 		return skillId;

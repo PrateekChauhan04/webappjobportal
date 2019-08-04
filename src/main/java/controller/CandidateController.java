@@ -26,7 +26,7 @@ import com.google.gson.GsonBuilder;
 import model.Candidate;
 import model.Education;
 import model.Experience;
-import services.CandidateServices;
+import services.CandidateService;
 
 @Controller
 @RequestMapping("/candidate")
@@ -40,8 +40,8 @@ public class CandidateController {
 		System.out.println("String : "+value);
 
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");		
-			CandidateServices s=context.getBean("candidateservice",CandidateServices.class);
-			Candidate candidate=s.getCandidate(value);
+			CandidateService s=context.getBean("candidateservice",CandidateService.class);
+			//'Candidate candidate=s.gety(value);
 			System.out.println(candidate.getMobileNumber()+candidate.getAge());
 
 			Gson g= new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
@@ -62,10 +62,10 @@ public class CandidateController {
 		Gson g=new Gson();
 		candidate =g.fromJson(value, Candidate.class);
 		System.out.println(candidate.getMobileNumber());
-	CandidateServices s=context.getBean("candidateservice",CandidateServices.class);
+	CandidateService s=context.getBean("candidateservice",CandidateService.class);
 		
 
-		s.addNewCandidate(candidate);
+		s.createCandidate(candidate);
 
 		 return "'success':'true'";
 	}
@@ -79,8 +79,8 @@ public class CandidateController {
 		Gson  g=new Gson();
 		Candidate candidate=g.fromJson(value, Candidate.class);
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		CandidateServices s=context.getBean("candidateservice",CandidateServices.class);
-		s.updateCandidate(candidate);
+		CandidateService s=context.getBean("candidateservice",CandidateService.class);
+		s.updateAdmin(candidate);
 		return "'success':'true'";
 	}
 	
@@ -90,8 +90,8 @@ public class CandidateController {
 	{
 		Candidate candidate;
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		CandidateServices s=context.getBean("candidateservice",CandidateServices.class);
-		candidate=s.getCandidate(value);
+		CandidateService s=context.getBean("candidateservice",CandidateService.class);
+	//	candidate=s.getCandidate(value);
 	
 		s.deleteCandidate(candidate);
 		return "'success':'true'";
@@ -101,10 +101,10 @@ public class CandidateController {
 	String getAllCandidate(HttpServletRequest request,HttpServletResponse response)
 	{
 		ApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		CandidateServices s=context.getBean("candidateservice",CandidateServices.class);
+		CandidateService s=context.getBean("candidateservice",CandidateService.class);
 		Gson g=new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 	
-		return g.toJson(s.getAllCandidate());
+		return g.toJson(s.candidates());
 	}
 	
 

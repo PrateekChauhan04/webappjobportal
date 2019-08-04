@@ -38,21 +38,21 @@ public class CandidateDaoImpl implements CandidateDao {
 		this.hTemplate.update(c);
 		
 	}
-
-	public void addExperience(Candidate candidate, Experience ex) {
-		
-	
-	  candidate.getExp().add(ex);
-	  
-	 this.hTemplate.update(candidate);
-	}
-
-	public void addEducation(Candidate candidate, Education ex) {
-
-		candidate.getEdu().add(ex);
-	  
-	 this.hTemplate.update(candidate );
-	}
+//
+//	public void addExperience(Candidate candidate, Experience ex) {
+//		
+//	
+//	  candidate.getExp().add(ex);
+//	  
+//	 this.hTemplate.update(candidate);
+//	}
+//
+//	public void addEducation(Candidate candidate, Education ex) {
+//
+//		candidate.getEdu().add(ex);
+//	  
+//	 this.hTemplate.update(candidate );
+//	}
 
 
 
@@ -67,7 +67,6 @@ public class CandidateDaoImpl implements CandidateDao {
 		return this.hTemplate.find("from Candidate");
 	}
 
-@Transactional
 public Candidate getCandidateById(String mobno)
 {
 

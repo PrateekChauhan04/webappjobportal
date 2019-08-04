@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Admin {
 	
@@ -41,15 +44,16 @@ public class Admin {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-//	@ManyToMany(mappedBy="admin")
-//	List<Company> company=new ArrayList<Company>();
-//
-//
-//	public List<Company> getCompany() {
-//		return company;
-//	}
-//	public void setCompany(List<Company> company) {
-//		this.company = company;
-//	}
+	@ManyToMany(mappedBy="admin")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	transient List<Company> company=new ArrayList<Company>();
+
+
+	public List<Company> getCompany() {
+		return company;
+	}
+	public void setCompany(List<Company> company) {
+		this.company = company;
+	}
 
 }

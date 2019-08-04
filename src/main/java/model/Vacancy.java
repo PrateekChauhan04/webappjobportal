@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 
 public class Vacancy {
@@ -28,8 +31,10 @@ public class Vacancy {
 	@Column
 	String experienceRequirement;
 	@ManyToOne
+	@LazyCollection(LazyCollectionOption.FALSE)
 	Employer employer;
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	List<Skills> skills= new ArrayList<Skills>();
 	public List<Skills> getSkills() {
 		return skills;
@@ -44,6 +49,7 @@ public class Vacancy {
 		this.employer = emp;
 	}
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	List<Candidate>candidate=new ArrayList<Candidate>();
 	
 	public List<Candidate> getCandidate() {

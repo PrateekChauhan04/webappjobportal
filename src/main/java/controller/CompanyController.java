@@ -23,7 +23,7 @@
 		ArrayList<Company> al=new ArrayList<Company>();
 
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Bean.xml");
-		CompanyService companyservice=(CompanyService)context.getBean("companyService");
+		CompanyService companyservice=(CompanyService)context.getBean("companyservice");
 		Company company=(Company)context.getBean("company");
 		
 

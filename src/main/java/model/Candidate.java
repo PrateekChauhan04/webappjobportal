@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,60 +23,64 @@ import com.google.gson.annotations.Expose;
 
 @Entity
 
-@Transactional
+
 public class Candidate {
-@Expose
+
 @Column
 String name;
-@Expose
+
 @Column
 String email;
 
-@Expose
+
 @Id
 @Column
 String mobileNumber;
 
-@Expose
+
 @Column
 int age;
 
-@Expose
+
 @Column
 int PinCode;
-@Expose
+
 @Column
 String state;
-@Expose
+
 @Column
 String country;
 
-@Expose
+
 @Column
 String resume;
-@Expose
+
 @Column
 String gender;
 
-@Expose
+
 @Column
 String password;
 
 
 
 @ElementCollection
+@LazyCollection(LazyCollectionOption.FALSE)
 List<Education>edu=new ArrayList<Education>();
 
 @ElementCollection
+@LazyCollection(LazyCollectionOption.FALSE)
 List<Experience>exp=new ArrayList<Experience>();
 
 
 @ManyToMany(mappedBy = "candidate")
-List<Vacancy>van=new ArrayList<Vacancy>();
+@LazyCollection(LazyCollectionOption.FALSE)
+transient List<Vacancy>van=new ArrayList<Vacancy>();
 
 
 @ManyToMany(mappedBy = "candidates")
-List<Employer> emp=new ArrayList<Employer>();
+@LazyCollection(LazyCollectionOption.FALSE)
+transient List<Employer> emp=new ArrayList<Employer>();
 
 
 

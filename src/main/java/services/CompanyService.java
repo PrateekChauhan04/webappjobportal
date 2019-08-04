@@ -9,15 +9,16 @@ public class CompanyService {
 	
 	private CompanyDaoImpl companydaoimpl;
 
-	public CompanyDaoImpl getcomimpl() {
+
+	public CompanyDaoImpl getCompanydaoimpl() {
 		return companydaoimpl;
 	}
 
-	public void setcdimpl(CompanyDaoImpl companydaoimpl) {
+	public void setCompanydaoimpl(CompanyDaoImpl companydaoimpl) {
 		this.companydaoimpl = companydaoimpl;
 	}
 
-	public    void createCompany(Company company) {
+	public void createCompany(Company company) {
 		
       this.companydaoimpl.createCompany(company);
 		

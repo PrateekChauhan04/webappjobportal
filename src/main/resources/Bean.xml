@@ -71,28 +71,28 @@
 <property name="hTemplate" ref="template"></property>
 
 </bean>
-<bean id="adminservice" class="services.Adminservices">
-<property name="admindaoimpl" ref="admindaoimp"></property>
+<bean id="adminservice" class="services.AdminService">
+<property name="admindaoimpl" ref="admindaoimpl"></property>
 
 </bean>
 
-<bean id="candidatservice" class="services.Candidateservices">
+<bean id="candidateservice" class="services.CandidateService">
 <property name="candidatedaoimpl" ref="candidatedaoimpl"></property>
 
 </bean>
-<bean id="companyservice" class="services.Companyservices">
+<bean id="companyservice" class="services.CompanyService">
 <property name="companydaoimpl" ref="companydaoimpl"></property>
 
 </bean>
-<bean id="employerservice" class="services.Employerservices">
+<bean id="employerservice" class="services.EmployerService">
 <property name="employerdaoimpl" ref="employerdaoimpl"></property>
 
 </bean>
-<bean id="skillsservice" class="services.Skillsservices">
+<bean id="skillsservice" class="services.SkillsService">
 <property name="skillsdaoimpl" ref="skillsdaoimpl"></property>
 
 </bean>
-<bean id="vacancyservice" class="services.Vacancyservices">
+<bean id="vacancyservice" class="services.VacancyService">
 <property name="vacancydaoimpl" ref="vacancydaoimpl"></property>
 
 </bean>

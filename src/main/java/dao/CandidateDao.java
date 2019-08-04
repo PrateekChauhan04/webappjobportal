@@ -10,8 +10,8 @@ public interface CandidateDao {
 
 	public void createCandidate(Candidate c);
 	public void updateCandidate(Candidate c);
-	public void addExperience(Candidate candidate,Experience ex);
-	public void addEducation(Candidate candidate,Education ex);
+//	public void addExperience(Candidate candidate,Experience ex);
+//	public void addEducation(Candidate candidate,Education ex);
 	public void deleteCandidate(Candidate candidate);
 	public List<Candidate> getAllCandidate();
 	public Candidate getCandidateById(String mobNo);
